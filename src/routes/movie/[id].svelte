@@ -1,10 +1,10 @@
 <script context="module">
 	export async function load({ fetch, params }) {
-		const res = await fetch(
-			`https://api.themoviedb.org/3/movie/${params.id}?api_key=${
-				import.meta.env.VITE_API
-			}&language=en-US&page=1`
-		);
+		const id = params.id;
+		const url = `https://api.themoviedb.org/3/movie/${params.id}?api_key=${
+			import.meta.env.VITE_API
+		}&language=en-US&page=1`;
+		const res = await fetch(url);
 		const movieDetail = await res.json();
 		if (res.ok) {
 			return {
