@@ -7,12 +7,16 @@
 			}&language=en-US&page=1`
 		);
 		const data = await res.json();
+		console.log(res.status);
 		if (res.ok) {
 			return {
 				// we pass the data received from the db as a prop 'popular'
 				props: { popular: data.results }
 			};
 		}
+		return {
+			props: { popular: []}
+		};
 	}
 </script>
 

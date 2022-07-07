@@ -12,6 +12,9 @@
 				props: { searchedMovie: data.results }
 			};
 		}
+		return {
+			props: { searchedMovie: []}
+		};
 	}
 </script>
 
