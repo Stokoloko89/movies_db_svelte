@@ -3,11 +3,10 @@
 	export async function load({ fetch }) {
 		const res = await fetch(
 			`https://api.themoviedb.org/3/movie/popular?api_key=${
-				import.meta.env.VITE_API
+				import.meta.env.VITE_API_KEY
 			}&language=en-US&page=1`
 		);
 		const data = await res.json();
-		console.log(res.status);
 		if (res.ok) {
 			return {
 				// we pass the data received from the db as a prop 'popular'
@@ -15,7 +14,7 @@
 			};
 		}
 		return {
-			props: { popular: []}
+			props: { popular: [] }
 		};
 	}
 </script>

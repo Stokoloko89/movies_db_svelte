@@ -25,5 +25,8 @@
 		"svelte": "^3.44.0",
 		"svelte-check": "^2.7.1"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"dotenv": "^16.0.1"
+	}
 }
