@@ -1,11 +1,9 @@
 <script context="module">
 	export async function load({ fetch, params }) {
 		const id = params.id;
-		const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${
-			import.meta.env.VITE_API_KEY
-		}&language=en-US&page=1`;
+		const url = `/movie/${id}.json`;
 		const res = await fetch(url);
-		const movieDetail = await res.json();
+		const { movieDetail } = await res.json();
 		if (res.ok) {
 			return {
 				// we pass the data received from the db as a prop 'popular'
