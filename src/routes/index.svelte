@@ -1,11 +1,6 @@
-<!-- NB! When fetching data from an external api, we must use the script tag with context="module" attribute  -->
-<script context="module">
+<!-- <script context="module">
 	export async function load({ fetch }) {
-		const res = await fetch(
-			`https://api.themoviedb.org/3/movie/popular?api_key=${
-				import.meta.env.VITE_API_KEY
-			}&language=en-US&page=1`
-		);
+		const res = await fetch(`http://localhost:3000/api/movies`);
 		const data = await res.json();
 		if (res.ok) {
 			return {
@@ -17,8 +12,7 @@
 			props: { popular: [] }
 		};
 	}
-</script>
-
+</script> -->
 <script>
 	import PopularMovies from '../components/PopularMovies.svelte';
 	// the prop data is then exported to the component to be consumed via export let declaration below
@@ -26,6 +20,9 @@
 	import SearchMovies from '../components/SearchMovies.svelte';
 	import { fly } from 'svelte/transition';
 </script>
+
+<!-- NB! When fetching data from an external api, we must use the script tag with context="module" attribute  -->
+
 
 <section in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
 	<SearchMovies />
