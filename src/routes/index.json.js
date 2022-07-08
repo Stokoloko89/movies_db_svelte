@@ -10,11 +10,12 @@ export async function get() {
         return {
             status: 200,
             headers: {},
-            body: { popular: data.results }
+            body: { data }
         };
     }
 
     return {
-        status: 404
+        status: res.status,
+        error: new Error('Could not load movies')
     };
 }

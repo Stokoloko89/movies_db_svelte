@@ -1,11 +1,9 @@
 <script context="module">
 	export async function load({ fetch, params }) {
 		const id = params.id;
-		const url = `https://api.themoviedb.org/3/search/movie?api_key=${
-			import.meta.env.VITE_API_KEY
-		}&language=en-US&query=${id}&page=1&include_adult=false`;
+		const url = `/search/${id}.json`;
 		const res = await fetch(url);
-		const data = await res.json();
+		const { data } = await res.json();
 		if (res.ok) {
 			return {
 				// we pass the data received from the db as a prop 'popular'
@@ -13,7 +11,8 @@
 			};
 		}
 		return {
-			props: { searchedMovie: data }
+			status: res.status,
+			redirect: `/`
 		};
 	}
 </script>
